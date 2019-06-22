@@ -18,8 +18,13 @@ class Change extends Component {
 
 serialChange = (event) =>{
     const value = event.target.value;
-    let reg = /^[0-9 \s]*$/
-    if (reg.test(event.target.value) === false) {event.target.value=''}
+    let reg = /^([0-9 \s]{0,19})$/
+    
+
+    if (reg.test(event.target.value)===false)
+            {
+                 event.target.value=event.target.value.slice(0, event.target.value.length-1)
+            }
 
     this.setState(
         {
